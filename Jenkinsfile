@@ -27,7 +27,9 @@ pipeline {
                                         sourceFiles: '**/*', // Include all files in the repo
                                         removePrefix: '',    // Remove no prefix
                                         remoteDirectory: env.REMOTE_DIR,
-                                        execCommand: ''      // Optional: Add commands like restarting the server
+                                        execCommand: """
+                                        sudo systemctl restart apache2
+"""      // Optional: Add commands like restarting the server
                                     )
                                 ],
                                 usePromotionTimestamp: false,
